@@ -1,4 +1,4 @@
-package strategy;
+package adapter;
 
 public class MyProgram {
     private SearchButton searchButton = new SearchButton(this);
@@ -17,6 +17,9 @@ public class MyProgram {
     public void setModeMap(){
         searchButton.setSearchStrategy(new SearchStrategyMap());
     }
+    public void setModeMovie(){
+        searchButton.setSearchStrategy(new SearchFindAdapter(new FindMovieAlgorithm()));
+    }
 
     public void testProgram(){
         searchButton.onClick();
@@ -26,7 +29,9 @@ public class MyProgram {
         searchButton.onClick();
         setModeMap();
         searchButton.onClick();
-        setModeAll();;
+        setModeAll();
+        searchButton.onClick();
+        setModeMovie();
         searchButton.onClick();
     }
 }

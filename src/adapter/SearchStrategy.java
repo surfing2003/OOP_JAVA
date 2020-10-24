@@ -1,4 +1,4 @@
-package strategy;
+package adapter;
 
 // interface는 그자체로 객체를 만들 수 없지만
 // 특정 interface를 implements를 한다면
@@ -32,5 +32,17 @@ class SearchStrategyNews implements SearchStrategy{
 class SearchStrategyMap implements SearchStrategy{
     public void search(){
         System.out.println("Search MAP");
+    }
+}
+
+class SearchFindAdapter implements SearchStrategy{
+    private FindAlgorithm findAlgorithm;
+
+    public SearchFindAdapter(FindAlgorithm _findAlgorithm){
+        findAlgorithm = _findAlgorithm;
+    }
+
+    public void search(){
+        findAlgorithm.find(true);
     }
 }

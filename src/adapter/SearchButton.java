@@ -1,4 +1,4 @@
-package strategy;
+package adapter;
 
 public class SearchButton {
     private MyProgram myProgram;
